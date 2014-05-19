@@ -10,6 +10,8 @@
  * 		Welding Tool
  * 		Crowbar
  *		Hammer
+ *		Glue
+ *		Duct Tape
  */
 
 /*
@@ -27,6 +29,33 @@
 	throwforce = 7.0
 	w_class = 2.0
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	
+
+/*
+ * Duct Tape
+ */
+ 
+/obj/item/weapon/ducttape
+	name = "Duct Tape"
+	desc = "The best thing in the world."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "ducttape"
+	slot_flags = SLOT_BELT
+	w_class = 1.0
+	attack_verb = list("taped", "stickied")
+	
+/*
+ * Glue
+ */
+ 
+/obj/item/weapon/glue
+	name = "Glue"
+	desc = "Sticky."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "glue"
+	slot_flags = SLOT_BELT
+	w_class = 1.0
+	attack_verb = list("glued")
 
 /*
  * Wrench
