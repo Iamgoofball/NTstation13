@@ -16,6 +16,14 @@
 	item_state = "armor"
 	blood_overlay_type = "armor"
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	
+/obj/item/clothing/suit/armor/greytide
+	name = "solid metal armor suit"
+	desc = "A solid suit of armor."
+	icon_state = "metalarmor"
+	item_state = "metalarmor"
+	slowdown = 1
+	armor = list(melee = 70, bullet = 50, laser = 50, energy = 10, bomb = 70, bio = 0, rad = 0) 
 
 /obj/item/clothing/suit/armor/hos
 	name = "armored coat"
