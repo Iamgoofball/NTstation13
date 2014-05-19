@@ -19,6 +19,14 @@
 	item_state = "jackboots"
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	flags = NOSLIP
+	
+/obj/item/clothing/shoes/greytide
+	name = "\improper Metal Boots"
+	desc = "A set of metal boots for crushing those who opress you."
+	icon_state = "metalboots"
+	item_state = "metalboots"
+	armor = list(melee = 60, bullet = 40, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+	flags = NOSLIP
 
 /obj/item/clothing/shoes/swat/combat
 	name = "combat boots"
