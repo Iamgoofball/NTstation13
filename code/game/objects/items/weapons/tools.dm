@@ -9,11 +9,29 @@
  * 		Wirecutters
  * 		Welding Tool
  * 		Crowbar
+ *		Hammer
  */
+
+/*
+ * Hammer
+ */
+ 
+/obj/item/weapon/hammer
+	name = "metal hammer"
+	desc = "A hammer for smashing skulls. And working, on occasion."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "hammer"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 10.0
+	throwforce = 7.0
+	w_class = 2.0
+	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
 /*
  * Wrench
  */
+
 /obj/item/weapon/wrench
 	name = "wrench"
 	desc = "A wrench with common uses. Can be found in your hand."
