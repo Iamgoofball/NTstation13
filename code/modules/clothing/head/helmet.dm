@@ -26,6 +26,13 @@
 	icon_state = "dermal"
 	item_state = "dermal"
 
+/obj/item/clothing/head/helmet/greytide
+	name = "metal helmet"
+	desc = "A metallic helmet made out of a bucket."
+	armor = list(melee = 50, bullet = 50, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)
+	icon_state = "metalhelm"
+	item_state = "metalhelm"
+
 /obj/item/clothing/head/helmet/roman
 	name = "roman helmet"
 	desc = "An ancient helmet made of bronze and leather."
