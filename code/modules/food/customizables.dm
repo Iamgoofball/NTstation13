@@ -1,28 +1,34 @@
 /obj/item/weapon/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/weapon/reagent_containers/food/snacks/customizable/S = new(get_turf(user))
-	S.attackby(W,user)
-	qdel(src)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/customizable/S = new(get_turf(user))
+		S.attackby(W,user)
+		qdel(src)
 /obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/weapon/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
-	S.attackby(W,user)
-	qdel(src)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
+		S.attackby(W,user)
+		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
-	S.attackby(W,user)
-	qdel(src)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
+		S.attackby(W,user)
+		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
-	S.attackby(W,user)
-	qdel(src)
+
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
+		S.attackby(W,user)
+		qdel(src)
 
 /obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
-	S.attackby(W,user)
-	qdel(src)
+	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		var/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
+		S.attackby(W,user)
+		qdel(src)
 
 /obj/item/trash/bowl
 	name = "bowl"
@@ -32,7 +38,7 @@
 
 /obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/))
+	if(istype(W,/obj/item/weapon/shard) || istype(W,/obj/item/weapon/reagent_containers/food/snacks))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
@@ -294,30 +300,27 @@
 	basename = "burger"
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/I = W
 	if(src.contents.len > sandwich_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
-	if(istype(I, /obj/item/weapon/disk/nuclear))
-		user << "You think about it for a few seconds, then you realize Central Command likely doesn't find nuke disk sandwiches very funny, and so you decide not to turn the nuke disk into a foodstuff."
-		return
-	else
-		user << "<span class='notice'> You add [I] to [src].</span>"
-		if(istype(I,  /obj/item/weapon/reagent_containers/))
-			var/obj/item/weapon/reagent_containers/F = I
-			F.reagents.trans_to(src, F.reagents.total_volume)
+	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+		user << "<span class='notice'> You add [W] to [src].</span>"
+		var/obj/item/weapon/reagent_containers/F = W
+		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
-		I.loc = src
-		ingredients += I
+		W.loc = src
+		ingredients += W
 		update()
+		return
+	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/proc/update()
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays = 0
+	overlays.Cut()
 
-	for(var/obj/item/O in ingredients)
+	for(var/obj/item/weapon/reagent_containers/food/snacks/O in ingredients)
 
 		i++
 		if(i == 1)
@@ -335,8 +338,6 @@
 					I.color = food.filling_color
 				else
 					I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
-			else
-				I.color = pick("#FF0000","#0000FF","#008000","#FFFF00")
 			if(add_overlays)
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
