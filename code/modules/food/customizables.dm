@@ -373,4 +373,6 @@
 	user << "You take apart [src], freeing the objects within."
 	for(var/obj/item/O in ingredients)
 		O.loc = user.loc
+		ingredients.Remove(O)
+		updatefood()
 	return
