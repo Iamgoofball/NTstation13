@@ -374,5 +374,5 @@
 	for(var/obj/item/O in ingredients)
 		O.loc = user.loc
 		ingredients.Remove(O)
-		updatefood()
+		update()
 	return
