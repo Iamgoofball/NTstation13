@@ -47,7 +47,7 @@
 	var/top = 1	//Do we have a top?
 	var/add_overlays = 1	//Do we stack?
 //	var/offsetstuff = 1 //Do we offset the overlays?
-	var/sandwich_limit = 40
+	var/sandwich_limit = 10
 	var/fullycustom = 0
 	trash = /obj/item/trash/plate
 	bitesize = 2
