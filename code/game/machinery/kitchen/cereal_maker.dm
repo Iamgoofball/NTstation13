@@ -20,6 +20,9 @@
 	if(istype(I, /obj/item/weapon/reagent_containers/glass/))
 		user << "<span class='warning'>That would probably break [src].</span>"
 		return
+	if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/cereal/))
+		user << "<span class='warning'>Cardboard cereal sound terrible.</span>"
+		return
 	if(istype(I, /obj/item/weapon/disk/nuclear))
 		user << "Central command would kill you if you made nuke disk cereal."
 		return
