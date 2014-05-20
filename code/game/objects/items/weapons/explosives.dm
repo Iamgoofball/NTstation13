@@ -62,12 +62,26 @@
 	if (istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle) || istype(target, /obj/item/weapon/storage/))
 		return
 	user << "Planting explosives..."
+	if(ismob(target))
+		add_logs(user, target, "tried to plant explosives on", object="[name]")
+		user.visible_message("\red [user.name] is trying to plant some kind of explosive on [target.name]!")
 
 
 	if(do_after(user, 50) && in_range(user, target))
 		user.drop_item()
 		src.target = target
 		loc = null
+
+		if (ismob(target))
+			add_logs(user, target, "planted [name] on")
+			user.visible_message("\red [user.name] finished planting an explosive on [target.name]!")
+			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted C4 on [key_name(target)](<A HREF='?_src_=holder;adminmoreinfo=\ref[target]'>?</A>) with [timer] second fuse",0,1)
+			log_game("[key_name(user)] planted C4 on [key_name(target)] with [timer] second fuse")
+
+		else
+			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted C4 on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
+			log_game("[key_name(user)] planted C4 on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse")
+
 		target.overlays += image_overlay
 		user << "Bomb has been planted. Timer counting down from [timer]."
 		spawn(timer*10)
@@ -85,8 +99,7 @@
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
-			var/turf/simulated/wall/T = target
-			T.dismantle_wall(1)
+			target:dismantle_wall(1)
 	if(target)
 		target.overlays -= image_overlay
 	qdel(src)
