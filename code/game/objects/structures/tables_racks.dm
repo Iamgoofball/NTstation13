@@ -518,6 +518,8 @@
 		density = 0
 		qdel(src)
 	else
+		user << "You climb onto the table."
+		user.loc = src.loc
 		..()
 
 /obj/structure/table/attack_tk() // no telehulk sorry
@@ -744,7 +746,9 @@ Destroy type values:
 		new /obj/item/weapon/rack_parts(loc)
 		density = 0
 		qdel(src)
-
+	else
+		user << "You climb onto the table."
+		user.loc = src.loc
 
 /obj/structure/rack/attack_paw(mob/user)
 	if(HULK in user.mutations)
