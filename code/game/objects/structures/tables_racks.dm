@@ -507,11 +507,8 @@
 		density = 0
 		qdel(src)
 	else
-		if(!user.loc == src.loc)
-			user << "You climb onto the table."
-			user.loc = src.loc
-		else
-			return
+		user << "You climb onto the table."
+		user.loc = src.loc
 
 
 
@@ -528,11 +525,8 @@
 		density = 0
 		qdel(src)
 	else
-		if(!user.loc == src.loc)
-			user << "You climb onto the table."
-			user.loc = src.loc
-		else
-			return
+		user << "You climb onto the table."
+		user.loc = src.loc
 		..()
 
 /obj/structure/table/attack_tk() // no telehulk sorry
@@ -760,11 +754,8 @@ Destroy type values:
 		density = 0
 		qdel(src)
 	else
-		if(!user.loc == src.loc)
-			user << "You climb onto the rack."
-			user.loc = src.loc
-		else
-			return
+		user << "You climb onto the rack."
+		user.loc = src.loc
 
 /obj/structure/rack/attack_paw(mob/user)
 	if(HULK in user.mutations)
@@ -774,11 +765,8 @@ Destroy type values:
 		density = 0
 		qdel(src)
 	else
-		if(!user.loc == src.loc)
-			user << "You climb onto the rack."
-			user.loc = src.loc
-		else
-			return
+		user << "You climb onto the rack."
+		user.loc = src.loc
 
 /obj/structure/rack/attack_alien(mob/user)
 	visible_message("<span class='danger'>[user] slices [src] apart!</span>")
@@ -794,11 +782,8 @@ Destroy type values:
 		density = 0
 		qdel(src)
 	else
-		if(!user.loc == src.loc)
-			user << "You climb onto the rack."
-			user.loc = src.loc
-		else
-			return
+		user << "You climb onto the rack."
+		user.loc = src.loc
 /obj/structure/rack/attack_tk() // no telehulk sorry
 	return
 
