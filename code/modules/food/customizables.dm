@@ -1,17 +1,17 @@
 /obj/item/weapon/reagent_containers/food/snacks/breadslice/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 /obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
@@ -19,13 +19,13 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 
 /obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
@@ -38,7 +38,7 @@
 
 /obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/weapon/shard) || istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		var/obj/item/weapon/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
@@ -303,10 +303,11 @@
 	if(src.contents.len > sandwich_limit)
 		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
 		return
-	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(W,/obj/item))
 		user << "<span class='notice'> You add [W] to [src].</span>"
-		var/obj/item/weapon/reagent_containers/F = W
-		F.reagents.trans_to(src, F.reagents.total_volume)
+		if(istype(W,/obj/item/weapon/reagent_containers))
+			var/obj/item/weapon/reagent_containers/F = W
+			F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
 		W.loc = src
 		ingredients += W
@@ -361,8 +362,15 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/Del()
 	for(var/obj/item/O in ingredients)
-		del(O)
+		qdel(O)
 	..()
+
+/obj/item/weapon/reagent_containers/food/snacks/customizable/attack_self(mob/user as mob)
+	..()
+	user << "You take apart [src], freeing the objects within."
+	for(var/obj/item/O in ingredients)
+		O.loc = user.loc
+	return
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/examine()
 	..()
