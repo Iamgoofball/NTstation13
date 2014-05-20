@@ -86,7 +86,7 @@
 	if(target)
 		if (istype(target, /turf/simulated/wall))
 			var/turf/simulated/wall/T = target
-			target.dismantle_wall(1)
+			T.dismantle_wall(1)
 	if(target)
 		target.overlays -= image_overlay
 	qdel(src)
