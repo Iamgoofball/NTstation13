@@ -128,8 +128,8 @@
 	icon_state = "drum45"
 	ammo_type = /obj/item/ammo_casing/tommy
 	caliber = ".45"
-	max_ammo = 10
-	m_amt = 150000
+	max_ammo = 50
+	m_amt = 15000
 
 /obj/item/ammo_box/magazine/m50
 	name = "magazine (.50ae)"
