@@ -55,7 +55,9 @@
 			blobstart += loc
 			qdel(src)
 			return
-
+		if("tutorial")
+			tutorialstart += loc
+			qdel(src)
 		if("xeno_spawn")
 			xeno_spawn += loc
 			qdel(src)

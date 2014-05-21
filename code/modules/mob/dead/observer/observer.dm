@@ -150,6 +150,17 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	mind.current.key = key
 	return 1
 
+/mob/dead/observer/verb/gototutorial()
+	set category = "Ghost"
+	set name = "Enter Training Area"
+	if(!istype(usr, /mob/dead/observer))
+		usr << "Not when you're not dead!"
+		return
+	var/mob/living/carbon/human/dummy/A
+	A.loc = pick(tutorialstart)
+	A.name = "TESTING HUMANOID CYBORG MODEL NO.[pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")]"
+	A.ckey = src.ckey
+	qdel(src)
 /mob/dead/observer/proc/dead_tele()
 	set category = "Ghost"
 	set name = "Teleport"

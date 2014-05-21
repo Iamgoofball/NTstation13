@@ -379,3 +379,7 @@
 	//angle_off = rand(-25, 25)
 	power_off = rand(-4, 0)
 	rotation_off = rand(-10, 10)
+
+/obj/machinery/computer/telescience/tutorial
+	starting_crystals = 9
+	max_crystals = 9
