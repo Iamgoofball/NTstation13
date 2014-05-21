@@ -19,6 +19,9 @@
 	weaken = 5
 
 
+/obj/item/projectile/bullet/tommy
+	damage = 15
+
 /obj/item/projectile/bullet/pellet
 	name = "pellet"
 	damage = 15
