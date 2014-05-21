@@ -241,6 +241,18 @@
 			default_deconstruction_crowbar(I)
 			return 1
 
+/obj/machinery/chem_dispenser/tutorial
+	name = "everything chem dispenser"
+	energy = 99999999
+	max_energy = 99999999
+	amount = 99999999
+	recharge_delay = 30
+	dispensable_reagents = list()
+
+/obj/machinery/chem_dispenser/tutorial/New()
+	..()
+	for(var/R in typesof(/datum/reagent)
+		dispensable_reagents.Add(R)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
