@@ -126,7 +126,7 @@
 	desc = "A one third finished Chicago Typewriter."
 	icon = 'icons/obj/buildingobject.dmi'
 	icon_state = "tommygun1"
-	m_amt = 8000000 // expensive, will need an autolathe upgrade to hold enough metal to produce the barrel. this way you need cooperation between 3 departments to finish even 1.
+	m_amt = 1000000 // expensive, will need an autolathe upgrade to hold enough metal to produce the barrel. this way you need cooperation between 3 departments to finish even 1.
 
 /obj/item/tommygunconstruction
 	name = "tommy gun barrel and grip"
