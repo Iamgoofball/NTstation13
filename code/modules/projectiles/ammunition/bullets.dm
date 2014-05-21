@@ -42,6 +42,10 @@
 	desc = "A .45 bullet casing."
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/midbullet
+	
+/obj/item/ammo_casing/tommy
+	desc = "A .45 bullet casing."
+	projectile_type = /obj/item/projectile/bullet/tommy
 
 
 /obj/item/ammo_casing/a12mm
