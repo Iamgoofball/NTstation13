@@ -1684,6 +1684,16 @@ datum/design/smg
 	build_path = /obj/item/weapon/gun/projectile/automatic
 	locked = 1
 
+datum/design/tommygunbar
+	name = "Tommy Gun Barrel"
+	desc = "Horseheads cost extra."
+	id = "tommygunbar"
+	req_tech = list("combat" = 4, "materials" = 5, "syndicate" = 4)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 20000, "$silver" = 10000, "$gold" = 5000, "$diamond" = 4000)
+	build_path = /obj/item/tommybarrel
+	locked = 1
+
 datum/design/xray
 	name = "Xray Laser Gun"
 	desc = "Not quite as menacing as it sounds"
