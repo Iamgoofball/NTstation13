@@ -12,9 +12,11 @@
 /obj/machinery/recharger/attackby(obj/item/weapon/G, mob/user)
 	if(istype(user,/mob/living/silicon))
 		return
-	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton))
-		if(charging)
-			return
+
+	if(charging)
+		return
+
+	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton) || istype(G, /obj/item/weapon/rnd/prototype))
 
 		//Checks to make sure he's not in space doing it, and that the area got proper power.
 		var/area/a = get_area(src)
