@@ -25,6 +25,14 @@ emp_act
 
 
 /mob/living/carbon/human/proc/checkarmor(var/obj/item/organ/limb/def_zone, var/type)
+	// PROTOTYPE DEVICE TRIGGER
+	for(var/obj/item/weapon/rnd/prototype/P in contents)
+		if(P.trigger && P.trigger.trigger_type == TRIGGER_HOLDER_DAMAGE)
+			spawn(20/P.trigger.rating)
+				if(!src || !P) return
+				P.trigger_device(src,src)
+
+	//END PROTOTYPE DEVICE TRIGGER
 	if(!type)	return 0
 	var/protection = 0
 	var/list/body_parts = list(head, wear_mask, wear_suit, w_uniform)
