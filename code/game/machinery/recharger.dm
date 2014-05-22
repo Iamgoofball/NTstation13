@@ -24,6 +24,18 @@
 			user << "<span class='notice'>[src] blinks red as you try to insert [G].</span>"
 			return
 
+		if(istype(G, /obj/item/weapon/rnd/prototype))
+
+			var/obj/item/weapon/rnd/prototype/P = G
+
+			if(!(P.power) || !(P.power.capacitor))
+				user << "\red The prototype is not configured properly for charging."
+				return
+
+			if(!istype(P.power,/obj/item/weapon/rnd/powersource/microbattery))
+				user << "\red The prototype is not equipped with a compatible charging port."
+				return
+
 		if (istype(G, /obj/item/weapon/gun/energy/gun/nuclear) || istype(G, /obj/item/weapon/gun/energy/crossbow))
 			user << "<span class='notice'>Your gun's recharge port was removed to make room for a miniaturized reactor.</span>"
 			return
