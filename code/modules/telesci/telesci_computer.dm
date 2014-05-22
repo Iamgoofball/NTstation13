@@ -11,6 +11,8 @@
 	var/teles_left	// How many teleports left until it becomes uncalibrated
 	var/datum/projectile_data/last_tele_data = null
 	var/z_co = 1
+	var/max_z = 6
+	var/min_z = 1
 	var/power_off
 	var/rotation_off
 	//var/angle_off
@@ -291,9 +293,9 @@
 		telefail()
 		temp_msg = "ERROR!<BR>Elevation is less than 1 or greater than 90."
 		return
-	if(z_co == 2 || z_co < 1 || z_co > 6)
+	if(z_co == 2 || z_co < min_z || z_co > max_z)
 		telefail()
-		temp_msg = "ERROR! Sector is less than 1, <BR>greater than 6, or equal to 2."
+		temp_msg = "ERROR! Sector is less than [min_z], <BR>greater than [max_z], or equal to 2."
 		return
 	if(teles_left > 0)
 		doteleport(user)
@@ -383,3 +385,5 @@
 /obj/machinery/computer/telescience/tutorial
 	starting_crystals = 9
 	max_crystals = 9
+	min_z = 7
+	max_z = 7

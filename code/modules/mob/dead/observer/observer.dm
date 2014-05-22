@@ -156,11 +156,34 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!istype(usr, /mob/dead/observer))
 		usr << "Not when you're not dead!"
 		return
-	var/mob/living/carbon/human/dummy/A
+	var/mob/living/carbon/human/dummy/A = new /mob/living/carbon/human/dummy(pick(tutorialstart))
 	A.loc = pick(tutorialstart)
-	A.name = "TESTING HUMANOID CYBORG MODEL NO.[pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")][pick("1","2","3","4","5","6","7","8","9","0")]"
+	A.name = "TESTING HUMANOID CYBORG MODEL NUMBER [rand(1,999)]"
+	A.real_name = name
+	A.voice_name = name
 	A.ckey = src.ckey
 	qdel(src)
+
+/mob/dead/observer/verb/gotothunderdome()
+	set category = "Ghost"
+	set name = "Enter Thunderdome"
+	if(!istype(usr, /mob/dead/observer))
+		usr << "Not when you're not dead!"
+		return
+	var/C
+	var/list/honk = list(tdome1,tdome2)
+	C = input("Select team to join.", "THUNDERDOME", C) in honk
+	if(!C)
+		return
+	else
+		var/mob/living/carbon/human/dummy/A = new /mob/living/carbon/human/dummy(pick(tutorialstart))
+		A.loc = pick(C)
+		A.name = "Thunderdome Contestant [rand(1,999)]"
+		A.real_name = name
+		A.voice_name = name
+		A.ckey = src.ckey
+		qdel(src)
+
 /mob/dead/observer/proc/dead_tele()
 	set category = "Ghost"
 	set name = "Teleport"

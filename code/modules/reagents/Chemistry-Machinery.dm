@@ -253,7 +253,9 @@
 
 /obj/machinery/chem_dispenser/tutorial/New()
 	..()
-	for(var/datum/reagent/R in typesof(/datum/reagent))
+	var/datum/reagent/R
+	for(var/A in typesof(/datum/reagent))
+		R = new A()
 		dispensable_reagents.Add(R.id)
 
 /obj/machinery/assemblydispenser
@@ -261,14 +263,22 @@
 	desc = "Makes a fresh set of assemblies for training."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "genesploicer0"
+	density = 1
+	anchored = 1
 	var/beaker = 1
+
+/obj/machinery/assemblydispenser/toxins
+	name = "toxins assembly dispenser"
+	beaker = 0
 
 /obj/machinery/assemblydispenser/attack_hand(mob/user as mob)
 	user << "You create a fresh set of assemblies."
-	for(var/obj/item/device/assembly/A in typesof(/obj/item/device/assembly/)-(/obj/item/device/assembly/))
-		A.loc = src.loc
+	for(var/A in typesof(/obj/item/device/assembly/)-(/obj/item/device/assembly/))
+		new A(src.loc)
 	if(beaker)
 		new /obj/item/weapon/reagent_containers/glass/beaker/tutorial(src.loc)
+	else
+		new /obj/item/device/transfer_valve(src.loc)
 	return
 
 
