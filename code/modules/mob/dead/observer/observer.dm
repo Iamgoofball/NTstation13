@@ -176,7 +176,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!C)
 		return
 	else
-		var/mob/living/carbon/human/dummy/A = new /mob/living/carbon/human/dummy(pick(tutorialstart))
+		var/mob/living/carbon/human/A = new /mob/living/carbon/human(pick(tutorialstart))
 		A.loc = pick(C)
 		A.name = "Thunderdome Contestant [rand(1,999)]"
 		A.real_name = name
