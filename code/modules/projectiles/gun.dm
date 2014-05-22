@@ -86,6 +86,7 @@
 			if(!chambered.fire(target, user, params, , silenced))
 				shoot_with_empty_chamber(user)
 			else
+				chambered.BB.shot_from = src
 				shoot_live_shot(user)
 				add_custom_fiber(chambered.trace_residue)
 		else
