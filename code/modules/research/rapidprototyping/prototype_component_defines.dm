@@ -91,9 +91,12 @@
 	name = "projectile rack"
 	required_components = list(/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/matter_bin)
 
-/obj/item/weapon/rnd/primer/matter_compiler  //Self-manufacturing ammo.
+/*/obj/item/weapon/rnd/primer/matter_compiler  //Self-manufacturing ammo.
 	name = "matter compiler"
 	required_components = list(/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/matter_bin)
+
+Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgoofball.
+*/
 
 /obj/item/weapon/rnd/primer/energy_projector //Egun.
 	name = "energy projector"
@@ -191,7 +194,7 @@
 	base_icon = "cellmount"
 	detail_icon = "cellmount_detail"
 	var/obj/item/weapon/stock_parts/cell/cell
-	charge_multiplier = 5
+	charge_multiplier = 15
 
 /obj/item/weapon/rnd/powersource/fuel_cell
 	name = "fuel cell"

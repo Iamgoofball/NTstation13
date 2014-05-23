@@ -51,9 +51,6 @@
 		else if(istype(primer,/obj/item/weapon/rnd/primer/multireader))
 			effect.etype = 2
 			effect.flags |= EFFECT_SCANNER
-		else if(istype(primer,/obj/item/weapon/rnd/primer/matter_compiler))
-			effect.etype = 2
-			effect.flags |= EFFECT_RCD
 
 	for(var/obj/item/weapon/rnd/C in components)
 		if(istype(C,/obj/item/weapon/rnd/bscrystal))
@@ -213,7 +210,6 @@
 					env.temperature -= abs(effect.degree)
 				if(effect.flags & EFFECT_RAISES_TEMP)
 					env.temperature += abs(effect.degree)
-
 			//Damaging fields are scary.
 			var/turf/T = target
 			for(var/mob/M in T)
