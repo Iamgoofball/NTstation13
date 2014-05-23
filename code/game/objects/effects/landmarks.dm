@@ -58,6 +58,9 @@
 		if("tutorial")
 			tutorialstart += loc
 			qdel(src)
+		if("tdomeghost")
+			tdomeghost += loc
+			qdel(src)
 		if("xeno_spawn")
 			xeno_spawn += loc
 			qdel(src)

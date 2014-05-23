@@ -170,19 +170,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!istype(usr, /mob/dead/observer))
 		usr << "Not when you're not dead!"
 		return
-	var/C
-	var/list/honk = list(tdome1,tdome2)
-	C = input("Select team to join.", "THUNDERDOME", C) in honk
-	if(!C)
-		return
-	else
-		var/mob/living/carbon/human/A = new /mob/living/carbon/human(pick(tutorialstart))
-		A.loc = pick(C)
-		A.name = "Thunderdome Contestant [rand(1,999)]"
-		A.real_name = name
-		A.voice_name = name
-		A.ckey = src.ckey
-		qdel(src)
+	var/mob/living/carbon/human/A = new /mob/living/carbon/human(pick(tdomeghost))
+	A.loc = pick(tdomeghost)
+	A.name = "Thunderdome Contestant [rand(1,999)]"
+	A.real_name = name
+	A.voice_name = name
+	A.ckey = src.ckey
+	qdel(src)
 
 /mob/dead/observer/proc/dead_tele()
 	set category = "Ghost"
