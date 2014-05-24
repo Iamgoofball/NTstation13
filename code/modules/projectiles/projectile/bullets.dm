@@ -19,7 +19,7 @@
 	weaken = 5
 
 
-/obj/item/projectile/bullet/tommy
+/obj/item/projectile/bullet/weakbullet2nostun
 	damage = 15
 
 /obj/item/projectile/bullet/pellet
