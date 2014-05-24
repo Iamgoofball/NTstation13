@@ -126,7 +126,7 @@
 /obj/item/ammo_box/magazine/tommygunm45
 	name = "tommy gun drum (.45)"
 	icon_state = "drum45"
-	ammo_type = /obj/item/ammo_casing/tommy
+	ammo_type = /obj/item/ammo_casing/weakbullet2nostun
 	caliber = ".45"
 	max_ammo = 50
 	m_amt = 15000
