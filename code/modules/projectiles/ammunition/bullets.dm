@@ -43,9 +43,9 @@
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/midbullet
 	
-/obj/item/ammo_casing/tommy
+/obj/item/ammo_casing/weakbullet2nostun
 	desc = "A .45 bullet casing."
-	projectile_type = /obj/item/projectile/bullet/tommy
+	projectile_type = /obj/item/projectile/bullet/weakbullet2nostun
 
 
 /obj/item/ammo_casing/a12mm
