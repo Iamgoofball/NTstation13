@@ -1199,6 +1199,7 @@
 #include "code\modules\research\rapidprototyping\prototype_effects.dm"
 #include "code\modules\research\rapidprototyping\prototype_power.dm"
 #include "code\modules\research\rapidprototyping\prototype_prebuilt.dm"
+#include "code\modules\research\rapidprototyping\prototype_technobabble.dm"
 #include "code\modules\scripting\Errors.dm"
 #include "code\modules\scripting\IDE.dm"
 #include "code\modules\scripting\Options.dm"

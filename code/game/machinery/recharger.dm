@@ -82,6 +82,15 @@
 		return
 
 	if(charging)
+		if(istype(charging, /obj/item/weapon/rnd/prototype))
+			var/obj/item/weapon/rnd/prototype/P = charging
+			if(P.stored_charge < (P.power.capacitor.rating*1000))
+				P.charge(100)
+				icon_state = "recharger1"
+				use_power(250)
+			else
+				icon_state = "recharger2"
+			return
 		if(istype(charging, /obj/item/weapon/gun/energy))
 			var/obj/item/weapon/gun/energy/E = charging
 			if(E.power_supply.charge < E.power_supply.maxcharge)

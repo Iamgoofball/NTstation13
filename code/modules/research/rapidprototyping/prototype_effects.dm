@@ -14,6 +14,7 @@
 #define EFFECT_RAISES_TEMP 2048   // Effect raises temp of target's turf.
 #define EFFECT_LOWERS_TEMP 4096   // Effect lowers temp of target's turf.
 #define EFFECT_STUN 8192         // Effect does halloss at range, stuns when adjacent.
+#define EFFECT_FLASH 16384       // Effect flashes everyone in visible range.
 
 // Notes on types:
 // 0 - applies all flagged damage types
@@ -68,6 +69,9 @@
 		else if(istype(C,/obj/item/weapon/rnd/medassist))
 			effect.flags |= EFFECT_INVERT_DEGREE
 			effect.degree -= 5
+		else if(istype(C,/obj/item/weapon/rnd/flasher))
+			effect.flags |= EFFECT_FLASH
+			effect.degree -= 1
 		else if(istype(C,/obj/item/weapon/rnd/toxboost))
 			effect.flags |= EFFECT_TOXLOSS
 		else if(istype(C,/obj/item/weapon/rnd/oxyboost))
@@ -143,6 +147,13 @@
 					M.SetStunned(degree)
 				else
 					M.staminaloss += degree
+
+			if(effect.flags & EFFECT_FLASH)
+				O.Weaken(degree)
+				if(!target.blinded)
+				flick("flash", target:flash)
+				O.eye_stat += rand(0, 2)
+				playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 
 			//Apply damage here.
 			if(effect.flags & EFFECT_BRAINLOSS)

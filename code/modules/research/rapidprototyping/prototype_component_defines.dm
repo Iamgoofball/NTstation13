@@ -18,7 +18,7 @@
 	var/list/required_components //Null so later procs don't bother with loops if it no reqs are set.
 
 	var/basecolor = "#ACACAC" //ack ack ack ack ack
-	var/base_icon
+	var/base_icon = "addon"
 	var/detail_icon
 
 // PRIMARY MODULE DEFINES.
@@ -87,10 +87,18 @@
 	magazine.stored_ammo -= AC
 	AC.loc = get_turf(src)
 
-/obj/item/weapon/rnd/primer/projectile_rack  //Nonstandard ballistic.
+/obj/item/weapon/rnd/primer/firing_mechanism/projectile_rack  //Shotgun Shells
 	name = "projectile rack"
-	required_components = list(/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/matter_bin)
+	required_components = list(/obj/item/weapon/stock_parts/manipulator)
+	caliber = "shotgun"
+	load_method = SHELL
+	magazine = /obj/item/ammo_box/magazine/internal/shot
 
+/obj/item/weapon/rnd/primer/firing_mechanism/cylinder  //Ammo Boxes
+	name = ".357 cylinder"
+	required_components = list(/obj/item/weapon/stock_parts/manipulator)
+	caliber = "357"
+	load_method = BOX
 /*/obj/item/weapon/rnd/primer/matter_compiler  //Self-manufacturing ammo.
 	name = "matter compiler"
 	required_components = list(/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/matter_bin)
@@ -276,6 +284,10 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 /obj/item/weapon/rnd/bscrystal
 	name = "bluespace crystal"
 	desc = "A strange blue crystal."
+
+/obj/item/weapon/rnd/flasher
+	name = "flasher"
+	desc = "A flasher to stun criminals."
 
 /obj/item/weapon/rnd/defocuser
 	name = "energy defocuser"
