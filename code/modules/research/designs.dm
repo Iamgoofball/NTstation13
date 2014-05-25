@@ -1991,6 +1991,15 @@ datum/design/primer_aoe
 	materials = list("$metal" = 50, "$glass" = 50)
 	build_path = /obj/item/weapon/rnd/primer/field_projector
 
+datum/design/primer_egun
+	name = "(PROTOTYPE) Energy Projector"
+	desc = "A stock part used in the construction of various devices."
+	id = "primer_egun"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/primer/energy_projector
+
 datum/design/primer_scanner
 	name = "(PROTOTYPE) Multireader Module"
 	desc = "A stock part used in the construction of various devices."
@@ -2233,3 +2242,12 @@ datum/design/component_heater
 	build_type = PROTOLATHE
 	materials = list("$metal" = 50, "$glass" = 50)
 	build_path = /obj/item/weapon/rnd/heater
+
+datum/design/component_stunner
+	name = "(PROTOTYPE) Stunner"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_stunner"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/stunner
