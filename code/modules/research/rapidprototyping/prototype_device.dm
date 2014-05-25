@@ -114,7 +114,7 @@
 			else
 				power = O
 		else
-			if(components.len > 6)
+			if(components.len > chassis.maxslots)
 				user << "There is no more room in \the [src] for \the [O]."
 				return
 
@@ -365,7 +365,16 @@
 	..()
 	if(trigger && trigger.trigger_type == TRIGGER_SWITCH)
 		trigger_device(user,user)
-
+	else
+		if(primer)
+			if(istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism/))
+				var/obj/item/weapon/rnd/primer/firing_mechanism/F = primer
+				if(F.magazine)
+					F.magazine.loc = get_turf(user)
+					F.magazine.update_icon()
+					F.magazine = null
+					user << "You eject the magazine."
+					return
 /obj/item/weapon/rnd/prototype/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 	if(trigger && trigger.trigger_type == TRIGGER_CLICK)
 

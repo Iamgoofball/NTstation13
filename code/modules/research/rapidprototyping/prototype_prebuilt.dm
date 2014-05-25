@@ -22,7 +22,7 @@
 			C.rnd_flags |= flag
 
 	slot_flags = chassis.slot_flags
-
+	stored_charge = 3000
 	update_icon()
 
 /obj/item/weapon/rnd/prototype/complete/vest/New()
@@ -42,7 +42,7 @@
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
 
 	slot_flags = chassis.slot_flags
-
+	stored_charge = 3000
 	for(var/obj/item/weapon/rnd/C in components)
 		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
 			C.rnd_flags |= flag
@@ -68,7 +68,7 @@
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
 
 	slot_flags = chassis.slot_flags
-
+	stored_charge = 3000
 	for(var/obj/item/weapon/rnd/C in components)
 		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
 			C.rnd_flags |= flag
@@ -94,7 +94,7 @@
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
 
 	slot_flags = chassis.slot_flags
-
+	stored_charge = 3000
 	for(var/obj/item/weapon/rnd/C in components)
 		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
 			C.rnd_flags |= flag
@@ -121,7 +121,7 @@
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
 
 	slot_flags = chassis.slot_flags
-
+	stored_charge = 3000
 	for(var/obj/item/weapon/rnd/C in components)
 		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
 			C.rnd_flags |= flag
@@ -147,7 +147,7 @@
 	components += new /obj/item/weapon/rnd/booster(src)
 
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
-
+	stored_charge = 3000
 	slot_flags = chassis.slot_flags
 
 	for(var/obj/item/weapon/rnd/C in components)
@@ -174,11 +174,64 @@
 	components += new /obj/item/weapon/rnd/booster(src)
 
 	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
-
+	stored_charge = 3000
 	slot_flags = chassis.slot_flags
 
 	for(var/obj/item/weapon/rnd/C in components)
 		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
 			C.rnd_flags |= flag
+
+	update_icon()
+
+/obj/item/weapon/rnd/prototype/complete/flash/New()
+
+	..()
+
+	chassis = new /obj/item/weapon/rnd/chassis/large_device(src)
+	power = new /obj/item/weapon/rnd/powersource/microbattery(src)
+	primer = new /obj/item/weapon/rnd/primer/field_projector(src)
+	trigger = new /obj/item/weapon/rnd/trigger/config(src)
+
+	components += chassis
+	components += power
+	components += primer
+	components += trigger
+
+	components += new /obj/item/weapon/rnd/flasher(src)
+	components += new /obj/item/weapon/rnd/booster(src)
+
+	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
+	stored_charge = 3000
+	slot_flags = chassis.slot_flags
+
+	for(var/obj/item/weapon/rnd/C in components)
+		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
+			C.rnd_flags |= flag
+
+	update_icon()
+
+/obj/item/weapon/rnd/prototype/complete/taser/New()
+
+	..()
+
+	chassis = new /obj/item/weapon/rnd/chassis/large_device(src)
+	power = new /obj/item/weapon/rnd/powersource/microbattery(src)
+	primer = new /obj/item/weapon/rnd/primer/energy_projector(src)
+	trigger = new /obj/item/weapon/rnd/trigger/gun(src)
+
+	components += chassis
+	components += power
+	components += primer
+	components += trigger
+	components += new /obj/item/weapon/rnd/stunner(src)
+	components += new /obj/item/weapon/rnd/booster(src)
+	power.capacitor = new /obj/item/weapon/stock_parts/capacitor/super(src)
+	stored_charge = 3000
+
+	for(var/obj/item/weapon/rnd/C in components)
+		for(var/flag in list(WELDED,CALIBRATED,WRENCHED,SECURED))
+			C.rnd_flags |= flag
+
+	slot_flags = chassis.slot_flags
 
 	update_icon()

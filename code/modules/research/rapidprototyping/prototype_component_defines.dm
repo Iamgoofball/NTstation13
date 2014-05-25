@@ -211,48 +211,48 @@
 	desc = "An empty shell, much like your life."
 	icon_state = "signaller"
 	var/list/permitted_modules
+	var/maxslots = 6
 	slot_flags = 0
 
 /obj/item/weapon/rnd/chassis/small_device
 	name = "small device chassis"
 	desc = "A chassis suitable for a handheld scanner or weapon."
 	slot_flags = SLOT_POCKET | SLOT_BELT | SLOT_BACK
-
 	base_icon = "smalldevice"
 
 /obj/item/weapon/rnd/chassis/large_device
 	name = "large device chassis"
 	desc = "A chassis suitable for a two-handed device, such as a gun."
 	slot_flags = SLOT_BELT | SLOT_BACK
-
+	maxslots = 10
 	base_icon = "largedevice"
 
 /obj/item/weapon/rnd/chassis/helmet
 	name = "helmet chassis"
 	desc = "A chassis suitable for headgear."
 	slot_flags = SLOT_HEAD
-
+	maxslots = 7
 	base_icon = "helmet"
 
 /obj/item/weapon/rnd/chassis/body
 	name = "body chassis"
 	desc = "A chassis suitable for body armour."
 	slot_flags = SLOT_OCLOTHING
-
+	maxslots = 7
 	base_icon = "body"
 
 /obj/item/weapon/rnd/chassis/hand_strap
 	name = "hand strap"
 	desc = "A strap suitable for hand-mounted devices."
 	slot_flags = SLOT_GLOVES
-
+	maxslots = 7
 	base_icon = "handstrap"
 
 /obj/item/weapon/rnd/chassis/boot_strap
 	name = "boot strap"
 	desc = "A strap suitable for foot-mounted devices."
 	slot_flags = SLOT_FEET
-
+	maxslots = 7
 	base_icon = "bootstrap"
 
 
