@@ -11,6 +11,7 @@
 	var/obj/item/weapon/rnd/trigger/trigger
 	var/obj/item/weapon/rnd/powersource/power
 	var/obj/item/weapon/rnd/chassis/chassis
+
 	var/stored_charge = 0
 	var/need_update_effect = 1
 	var/datum/prototype/effect/effect
@@ -47,34 +48,30 @@
 
 /obj/item/weapon/rnd/prototype/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
 
-	if(primer && istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism))
-		if(istype(O, /obj/item/ammo_box)
-			var/obj/item/weapon/rnd/primer/firing_mechanism/FM = primer
-			if(FM.load_method != MAGAZINE && istype(O,/obj/item/ammo_box/magazine))
-				user << "\The [src] does not accept magazines."
-				return
-			if(FM.load_method != BOX && istype(O,/obj/item/ammo_box)
-				user << "\The [src] does not accept revolver bullets."
-			if(FM.magazine)
-				user << "\The [src] already has a magazine loaded."
-				return
-
-			var/obj/item/ammo_box/AM = O
-			if(!AM.stored_ammo.len) return
-			var/obj/item/ammo_casing/B = AM.stored_ammo[1]
-			if(B.caliber == FM.caliber)
-				user.drop_item()
-				FM.magazine = AM
-				FM.magazine.loc = FM
-				user << "\blue You slot [AM] into \the [src]."
-				need_update_effect = 1
-			else
-				user << "\The [src] does not use that calibre of ammunition."
+	if(primer && istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism) && istype(O, /obj/item/ammo_box/magazine))
+		var/obj/item/weapon/rnd/primer/firing_mechanism/FM = primer
+		if(FM.load_method != MAGAZINE)
+			user << "\The [src] does not accept magazines."
 			return
-			O.update_icon()
-			update_icon()
+
+		if(FM.magazine)
+			user << "\The [src] already has a magazine loaded."
+			return
+
+		var/obj/item/ammo_box/magazine/AM = O
+		if(!AM.stored_ammo.len) return
+		var/obj/item/ammo_casing/B = AM.stored_ammo[1]
+		if(B.caliber == FM.caliber)
+			user.drop_item()
+			FM.magazine = AM
+			FM.magazine.loc = FM
+			user << "\blue You slot [AM] into \the [src]."
+			need_update_effect = 1
 		else
-			if(istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism/projectile_rack)
+			user << "\The [src] does not use that calibre of ammunition."
+		return
+		O.update_icon()
+		update_icon()
 
 	if(istype(O,/obj/item/weapon/rnd/chassis))
 		if(chassis)
@@ -147,7 +144,7 @@
 		else
 			remove_component(user)
 			update_icon()
-	else if(istype(O,/obj/item/weapon/stock_parts/cell))
+	else if(istype(O,/obj/item/weapon/stock_parts/cell/))
 		if(power && istype(power,/obj/item/weapon/rnd/powersource/cell_mount))
 			var/obj/item/weapon/rnd/powersource/cell_mount/P = power
 			if(P.cell)
@@ -246,9 +243,14 @@
 		return 0 // Device is incomplete.
 
 	for(var/obj/item/weapon/rnd/C in components)
+
+		if(C.broken) //Busted!
+			return 0
+
 		for(var/flag in list(NEEDS_WELDER,NEEDS_CALIBRATION,NEEDS_WRENCH,NEEDS_SECURING))
-			if(C.broken || ((C.rnd_flags & flag) && !(C.rnd_flags & (flag*2)))) // If the component needs something and hasn't got it...
+			if((C.rnd_flags & flag) && !(C.rnd_flags & (flag*2))) // If the component needs something and hasn't got it...
 				return 0 // Nope.
+
 	return 1 //All systems go, captain.
 
 /obj/item/weapon/rnd/prototype/proc/powered()
@@ -363,21 +365,7 @@
 	..()
 	if(trigger && trigger.trigger_type == TRIGGER_SWITCH)
 		trigger_device(user,user)
-	else
-		if(primer)
-			if(istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism/))
-				var/obj/item/weapon/rnd/primer/firing_mechanism/F = primer
-				if(F.load_method != SHELL)
-					F.magazine.loc = get_turf(user)
-					user << "You eject the magazine.
-				else
-					if(F.magazine.stored_ammo.len > 0)
-						var/obj/item/ammo_casing/shotgun/C = F.magazine.stored_ammo[1]
-						C.loc = get_turf(user)
-						user << "You unload a shell."
-					else
-						user << "The device is empty on shells."
-						return
+
 /obj/item/weapon/rnd/prototype/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 	if(trigger && trigger.trigger_type == TRIGGER_CLICK)
 
@@ -388,13 +376,10 @@
 
 //COMPLETED DEVICE PROCS
 
-/obj/item/weapon/rnd/prototype/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
+/obj/item/weapon/rnd/prototype/complete/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
 	if(istype(O,/obj/item/weapon/crowbar) || istype(O,/obj/item/weapon/wrench) || istype(O,/obj/item/weapon/screwdriver) || istype(O,/obj/item/device/multitool) || istype(O,/obj/item/weapon/weldingtool))
-		if(frm)
-			user << "\red \The [src] is protected by sophisticated Fabrication Rights Management technology - you cannot alter it."
-			return
-		else
-			..()
+		user << "\red \The [src] is protected by sophisticated Fabrication Rights Management technology - you cannot alter it."
+		return
 
 //CHASSIS PROCS
 

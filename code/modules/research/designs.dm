@@ -1968,3 +1968,268 @@ datum/design/magboots
 	build_type = PROTOLATHE
 	materials = list("$metal" = 4500, "$silver" = 1500, "$gold" = 2500)
 	build_path = /obj/item/clothing/shoes/magboots
+
+/////////////////////////////////////////
+//////////Rapid Prototyping//////////////
+/////////////////////////////////////////
+
+datum/design/primer_projectile
+	name = "(PROTOTYPE) Firing Mechanism"
+	desc = "A stock part used in the construction of various devices."
+	id = "primer_projectile"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/primer/firing_mechanism
+
+datum/design/primer_aoe
+	name = "(PROTOTYPE) Field Projector"
+	desc = "A stock part used in the construction of various devices."
+	id = "primer_aoe"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/primer/field_projector
+
+datum/design/primer_scanner
+	name = "(PROTOTYPE) Multireader Module"
+	desc = "A stock part used in the construction of various devices."
+	id = "primer_scanner"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/primer/multireader
+
+datum/design/trigger_impact
+	name = "(PROTOTYPE) Impact Trigger Array"
+	desc = "A stock part used in the construction of various devices."
+	id = "trigger_impact"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/trigger/impact
+
+datum/design/trigger_synthetic
+	name = "(PROTOTYPE) Heuristic Interface"
+	desc = "A stock part used in the construction of various devices."
+	id = "trigger_synthetic"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/trigger/synthetic
+
+datum/design/trigger_gun
+	name = "(PROTOTYPE) Manual Trigger"
+	desc = "A stock part used in the construction of various devices."
+	id = "trigger_gun"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/trigger/gun
+
+datum/design/trigger_config
+	name = "(PROTOTYPE) Switch Panel"
+	desc = "A stock part used in the construction of various devices."
+	id = "trigger_config"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/trigger/config
+
+datum/design/powersource_microbattery
+	name = "(PROTOTYPE) Micro Battery"
+	desc = "A stock part used in the construction of various devices."
+	id = "powersource_microbattery"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/powersource/microbattery
+
+datum/design/powersource_cell_mount
+	name = "(PROTOTYPE) Cell Mount"
+	desc = "A stock part used in the construction of various devices."
+	id = "powersource_cell_mount"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/powersource/cell_mount
+
+datum/design/powersource_uranium
+	name = "(PROTOTYPE) Fission Battery"
+	desc = "A stock part used in the construction of various devices."
+	id = "powersource_uranium"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/powersource/fuel_cell/uranium_converter
+
+datum/design/powersource_plasma
+	name = "(PROTOTYPE) Plasma Converter"
+	desc = "A stock part used in the construction of various devices."
+	id = "powersource_plasma"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/powersource/fuel_cell/plasma_converter
+
+datum/design/chassis_small
+	name = "(PROTOTYPE) Small Device Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_small"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/small_device
+
+datum/design/chassis_large
+	name = "(PROTOTYPE) Large Device Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_large"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/large_device
+
+datum/design/chassis_helmet
+	name = "(PROTOTYPE) Helmet Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_helmet"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/helmet
+
+datum/design/chassis_body
+	name = "(PROTOTYPE) Body Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_body"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/body
+
+datum/design/chassis_hand
+	name = "(PROTOTYPE) Glove Strap Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_hand"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/hand_strap
+
+datum/design/chassis_boot
+	name = "(PROTOTYPE) Boot Strap Chassis"
+	desc = "A stock part used in the construction of various devices."
+	id = "chassis_boot"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/chassis/boot_strap
+
+datum/design/component_bscrystal
+	name = "(PROTOTYPE) Prototype Bluespace Crystal"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_bscrystal"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/bscrystal
+
+datum/design/component_flasher
+	name = "(PROTOTYPE) Flasher"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_flasher"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/flasher
+
+datum/design/component_defocuser
+	name = "(PROTOTYPE) Defocuser"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_defocuser"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/defocuser
+
+datum/design/component_lens
+	name = "(PROTOTYPE) Lens"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_lens"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/lens
+
+datum/design/component_medassist
+	name = "(PROTOTYPE) Medical Assist Module"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_medassist"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/medassist
+
+datum/design/component_toxboost
+	name = "(PROTOTYPE) Metastasis Invoker"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_toxboost"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/toxboost
+
+datum/design/component_oxyboost
+	name = "(PROTOTYPE) Haemoglobin Inhibitor"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_oxyboost"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/oxyboost
+
+datum/design/component_cloneboost
+	name = "(PROTOTYPE) Genetic Scrambler"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_cloneboost"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/cloneboost
+
+datum/design/component_brainboost
+	name = "(PROTOTYPE) Concussive Deharmonizer"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_brainboost"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/brainboost
+
+datum/design/component_booster
+	name = "(PROTOTYPE) Enhancement Buffer"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_booster"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/booster
+
+datum/design/component_cooler
+	name = "(PROTOTYPE) Photocryogenic Suite"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_cooler"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/cooler
+
+datum/design/component_heater
+	name = "(PROTOTYPE) Particle Excitation Array"
+	desc = "A stock part used in the construction of various devices."
+	id = "component_heater"
+	req_tech = list("powerstorage" = 1)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 50, "$glass" = 50)
+	build_path = /obj/item/weapon/rnd/heater

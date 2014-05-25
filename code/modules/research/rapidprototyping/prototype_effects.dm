@@ -13,7 +13,7 @@
 #define EFFECT_SCANNER 1024      // Effect collects data.
 #define EFFECT_RAISES_TEMP 2048   // Effect raises temp of target's turf.
 #define EFFECT_LOWERS_TEMP 4096   // Effect lowers temp of target's turf.
-#define EFFECT_STUN 8192         // Effect does halloss at range, stuns when adjacent.
+#define EFFECT_STUN 8192         // Effect does stamina at range, stuns when adjacent.
 #define EFFECT_FLASH 16384       // Effect flashes everyone in visible range.
 
 // Notes on types:
@@ -45,7 +45,7 @@
 		other -= primer
 		effect.base = primer.base_projectile_type
 
-		if(istype(primer,/obj/item/weapon/rnd/primer/energy_projector) || istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism) || istype(primer,/obj/item/weapon/rnd/primer/projectile_rack))
+		if(istype(primer,/obj/item/weapon/rnd/primer/energy_projector) || istype(primer,/obj/item/weapon/rnd/primer/firing_mechanism))
 			effect.etype = 0
 		else if(istype(primer,/obj/item/weapon/rnd/primer/field_projector))
 			effect.etype = 1
@@ -80,6 +80,8 @@
 			effect.flags |= EFFECT_CLONELOSS
 		else if(istype(C,/obj/item/weapon/rnd/brainboost))
 			effect.flags |= EFFECT_BRAINLOSS
+		else if(istype(C,/obj/item/weapon/rnd/stunner))
+			effect.flags |= EFFECT_STUN
 		else if(istype(C,/obj/item/weapon/rnd/booster))
 			effect.degree += 3
 		else if(istype(C,/obj/item/weapon/rnd/cooler))
@@ -147,13 +149,14 @@
 					M.SetStunned(degree)
 				else
 					M.staminaloss += degree
-
-			if(effect.flags & EFFECT_FLASH)
-				O.Weaken(degree)
-				if(!target.blinded)
-				flick("flash", target:flash)
-				O.eye_stat += rand(0, 2)
-				playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
+			if(istype(target, /mob/living/carbon/human))
+				var/mob/living/carbon/human/T = target
+				if(effect.flags & EFFECT_FLASH)
+					if(!T.blinded)
+						flick("flash", T:flash)
+						T.eye_stat += rand(0, 2)
+						T.Weaken(degree)
+					playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 
 			//Apply damage here.
 			if(effect.flags & EFFECT_BRAINLOSS)

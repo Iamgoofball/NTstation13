@@ -1,7 +1,5 @@
 //COMPONENT DEFINE
-#define SHELL 1
-#define MAGAZINE 2
-#define BOX 3
+#define MAGAZINE 1
 /obj/item/weapon/rnd
 	name = "research component"
 	desc = "You have no idea what it is, but it sure looks sciency."
@@ -71,7 +69,7 @@
 	recoil = 1
 
 	var/obj/item/ammo_box/magazine //Ammunition storage object.
-	var/caliber = "357"                 //Type of ammo.
+	var/caliber = "9mm"                 //Type of ammo.
 	var/load_method = MAGAZINE          //Type of load object.
 
 /obj/item/weapon/rnd/primer/firing_mechanism/ready_to_fire()
@@ -87,24 +85,6 @@
 	magazine.stored_ammo -= AC
 	AC.loc = get_turf(src)
 
-/obj/item/weapon/rnd/primer/firing_mechanism/projectile_rack  //Shotgun Shells
-	name = "projectile rack"
-	required_components = list(/obj/item/weapon/stock_parts/manipulator)
-	caliber = "shotgun"
-	load_method = SHELL
-	magazine = /obj/item/ammo_box/magazine/internal/shot
-
-/obj/item/weapon/rnd/primer/firing_mechanism/cylinder  //Ammo Boxes
-	name = ".357 cylinder"
-	required_components = list(/obj/item/weapon/stock_parts/manipulator)
-	caliber = "357"
-	load_method = BOX
-/*/obj/item/weapon/rnd/primer/matter_compiler  //Self-manufacturing ammo.
-	name = "matter compiler"
-	required_components = list(/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/matter_bin)
-
-Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgoofball.
-*/
 
 /obj/item/weapon/rnd/primer/energy_projector //Egun.
 	name = "energy projector"
@@ -137,12 +117,7 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 	base_icon = "generic_trigger"
 
 	var/trigger_type
-
-/obj/item/weapon/rnd/trigger/impact
-	name = "impact trigger array"
-	trigger_type = TRIGGER_HOLDER_DAMAGE
-	required_components = list(/obj/item/weapon/stock_parts/manipulator)
-
+/*
 /obj/item/weapon/rnd/trigger/movement
 	name = "somatic trigger array"
 	trigger_type = TRIGGER_MOVE_SELF
@@ -152,6 +127,11 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 	name = "proximity trigger array"
 	trigger_type = TRIGGER_MOVE_OTHER
 	required_components = list(/obj/item/weapon/stock_parts/scanning_module)
+*/
+/obj/item/weapon/rnd/trigger/impact
+	name = "impact trigger array"
+	trigger_type = TRIGGER_HOLDER_DAMAGE
+	required_components = list(/obj/item/weapon/stock_parts/manipulator)
 
 /obj/item/weapon/rnd/trigger/synthetic
 	name = "heuristic interface"
@@ -218,7 +198,7 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 	detail_icon = "fissionbattery_detail"
 
 /obj/item/weapon/rnd/powersource/fuel_cell/plasma_converter
-	name = "thoron converter"
+	name = "plasma converter"
 	fuel_type = /obj/item/stack/sheet/mineral/plasma
 	charge_multiplier = 30
 	base_icon = "thoronconverter"
@@ -232,10 +212,6 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 	icon_state = "signaller"
 	var/list/permitted_modules
 	slot_flags = 0
-
-/obj/item/weapon/rnd/chassis/machine
-	name = "machine chassis"
-	desc = "A chassis suitable for a large, stationary machine."
 
 /obj/item/weapon/rnd/chassis/small_device
 	name = "small device chassis"
@@ -282,12 +258,16 @@ Really doesn't work very well, and is rather griefy. Maybe in the future. -Iamgo
 
 // MODIFIER COMPONENTS
 /obj/item/weapon/rnd/bscrystal
-	name = "bluespace crystal"
+	name = "prototype bluespace crystal"
 	desc = "A strange blue crystal."
 
 /obj/item/weapon/rnd/flasher
 	name = "flasher"
 	desc = "A flasher to stun criminals."
+
+/obj/item/weapon/rnd/stunner
+	name = "electrical output booster"
+	desc = "An addon to stun criminals with electricity."
 
 /obj/item/weapon/rnd/defocuser
 	name = "energy defocuser"

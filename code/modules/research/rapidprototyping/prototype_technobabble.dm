@@ -1,4 +1,5 @@
 //TODO: EXPAND ALL OF THESE.
+//DISABLED FOR NOW DUE TO USELESSNESS - Iamgoofball
 var/global/list/technobabble_adjectives = list(
 	"reverse-phase",
 	"polarity-induced",
@@ -92,11 +93,6 @@ var/global/list/technobabble_competitors = list(
 		var/obj/item/weapon/rnd/NC = new new_type(src)
 		NC.randomize_strings()
 		components += NC
-
-	//Generate a random tech level (possibly strike it big with a massive boost to global research levels).
-	//TODO: Link this to existing research levels.
-	var/research_index = rand(1,9)
-
 
 	for(var/obj/item/weapon/rnd/C in components)
 		C.broken = 1
