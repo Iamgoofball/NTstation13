@@ -6,8 +6,6 @@
 // Dynamically loading it has bad results with sounds overtaking each other, even with the wait variable.
 
 var/list/vox_sounds = list(
-	"," = 'sound/vox_fem/,.wav',
-	"." = 'sound/vox_fem/..wav',
 	"a" = 'sound/vox_fem/a.ogg',
 	"abortions" = 'sound/vox_fem/abortions.ogg',
 	"accelerating" = 'sound/vox_fem/accelerating.ogg',
