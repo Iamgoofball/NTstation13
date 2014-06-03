@@ -636,7 +636,100 @@
 		usr << "<span class='info'>[src] is empty.</span>"
 	if(malfunctioning)
 		usr << "<span class='info'>The display on [src] seems to be flickering.</span>"
+/*********************Mob Capsule*************************/
 
+/obj/item/device/mobcapsule
+	name = "Lazarus Capsule"
+	desc = "It allows you to store and deploy lazarus injected creatures easier."
+	icon = 'icons/obj/mobcap.dmi'
+	icon_state = "mobcap0"
+	throwforce = 00
+	throw_speed = 4
+	throw_range = 20
+	force = 0
+	var/storage_capacity = 1
+	var/capsuleowner = null
+	var/tripped = 0
+	var/colorindex = 0
+
+	throw_impact(atom/A, mob/user)
+		..()
+		if(!tripped)
+			if(contents.len >= storage_capacity)
+				dump_contents()
+				tripped = 1
+			else
+				take_contents()
+				tripped = 1
+
+
+
+/obj/item/device/mobcapsule/proc/insert(var/atom/movable/AM)
+
+	if(contents.len >= storage_capacity)
+		return -1
+
+
+	if(istype(AM, /mob/living))
+		var/mob/living/L = AM
+		if(L.buckled)
+			return 0
+		if(L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+	else if(!istype(AM, /obj/item) && !istype(AM, /obj/effect/dummy/chameleon))
+		return 0
+	else if(AM.density || AM.anchored)
+		return 0
+	AM.loc = src
+	return 1
+
+
+/obj/item/device/mobcapsule/pickup(mob/user)
+	tripped = 0
+	capsuleowner = user
+
+
+/obj/item/device/mobcapsule/proc/dump_contents()
+	//Cham Projector Exception
+	for(var/obj/effect/dummy/chameleon/AD in src)
+		AD.loc = src.loc
+
+	for(var/obj/O in src)
+		O.loc = src.loc
+
+	for(var/mob/M in src)
+		M.loc = src.loc
+		if(M.client)
+			M.client.eye = M.client.mob
+			M.client.perspective = MOB_PERSPECTIVE
+
+
+
+
+
+/obj/item/device/mobcapsule/attack_self(mob/user)
+	colorindex += 1
+	if(colorindex >= 6)
+		colorindex = 0
+	icon_state = "mobcap[colorindex]"
+	update_icon()
+
+
+
+
+
+/obj/item/device/mobcapsule/proc/take_contents(atom/target)
+	for(var/atom/AM in src.loc)
+
+
+		if(istype(AM, /mob/living/simple_animal))
+			var/mob/living/simple_animal/M = AM
+			var/mob/living/simple_animal/hostile/H = M
+			for(var/things in H.friends)
+			if(capsuleowner in H.friends)
+				if(insert(AM) == -1) // limit reached
+					break
 /**********************Mining Scanner**********************/
 /obj/item/device/mining_scanner
 	desc = "A scanner that checks surrounding rock for useful minerals, it can also be used to stop gibtonite detonations. Requires you to wear mesons to work properly."
