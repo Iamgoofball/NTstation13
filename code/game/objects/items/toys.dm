@@ -939,7 +939,14 @@ obj/item/toy/cards/deck/syndicate
 		var/timeleft = (cooldown - world.time)
 		user << "<span class='alert'>Nothing happens, and '</span>[round(timeleft/10)]<span class='alert'>' appears on a small display.</span>"
 
+/obj/item/toy/minimeteor
+	name = "Mini Meteor™"
+	desc = "Relive the horror of a meteor shower! SweetMeat-eor. Co is not responsible for any injury caused by Mini Meteor™"
+	icon = 'icons/obj/meteor.dmi'
+	icon_state = "flaming"
 
+/obj/item/toy/minimeteor/attack_self(mob/user as mob)
+	playsound(user, 'sound/effects/bamf.ogg', 20, 1)
 
 
 

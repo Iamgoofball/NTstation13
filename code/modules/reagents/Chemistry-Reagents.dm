@@ -1116,7 +1116,6 @@ datum
 			description = "Rapidly heals ear damage"
 			reagent_state = LIQUID
 			color = "#6600FF" // rgb: 100, 165, 255
-			overdose = REAGENTS_OVERDOSE
 
 			on_mob_life(var/mob/living/M as mob)
 				if(!M) M = holder.my_atom
@@ -3248,7 +3247,7 @@ datum
 			description = "The Detective's undercover drink of choice. He never could stomach gin..."
 			color = "#664300" // rgb: 102, 67, 0
 			boozepwr = 40
-			
+
 		ethanol/manhattan_proj
 			name = "Manhattan Project"
 			id = "manhattan_proj"
