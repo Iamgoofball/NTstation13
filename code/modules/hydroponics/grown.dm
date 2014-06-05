@@ -119,7 +119,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/grown/harebell
 	seed = "obj/item/seeds/harebellseed"
 	name = "harebell"
-	desc = "\"I'll sweeten thy sad grave: thou shalt not lack the flower that's like thy face, pale primrose, nor the azured hare-bell, like thy veins; no, nor the leaf of eglantine, whom not to slander, out-sweeten’d not thy breath.\""
+	desc = "\"I'll sweeten thy sad grave: thou shalt not lack the flower that's like thy face, pale primrose, nor the azured hare-bell, like thy veins; no, nor the leaf of eglantine, whom not to slander, out-sweetenï¿½d not thy breath.\""
 	icon_state = "harebell"
 	slot_flags = SLOT_HEAD
 	dried_type = /obj/item/weapon/reagent_containers/food/snacks/grown/harebell
@@ -970,6 +970,22 @@
 	icon_state = "gatfruit"
 	origin_tech = "combat=3"
 	trash = /obj/item/weapon/gun/projectile/revolver
+	New(var/loc, var/potency = 60)
+		..()
+		if(reagents)
+			reagents.add_reagent("sulfur", 1+round((potency / 10), 1))
+			reagents.add_reagent("carbon", 1+round((potency / 10), 1))
+			reagents.add_reagent("nitrogen", 1+round((potency / 15), 1))
+			reagents.add_reagent("potassium", 1+round((potency / 20), 1))
+			bitesize = 1+round(reagents.total_volume / 2, 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/grown/gatfruitfake
+	seed = "/obj/item/seeds/gatfruit/fake"
+	name = "gatfruit"
+	desc = "It smells like burning."
+	icon_state = "gatfruit"
+	origin_tech = "combat=3"
+	trash = /obj/item/weapon/gun/projectile/revolver/russian/gatfruit
 	New(var/loc, var/potency = 60)
 		..()
 		if(reagents)
