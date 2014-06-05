@@ -642,6 +642,7 @@
 	endurance = 50 // damm pesky weeds
 	maturation = 5
 	production = 1
+	mutatelist = list(/obj/item/seeds/gatfruit/fake)
 	yield = -1
 	potency = -1
 	oneharvest = 1
@@ -1088,6 +1089,10 @@
 	plant_type = 0
 	growthstages = 2
 	rarity = 50 // Seems admin-only.
+
+/obj/item/seeds/gatfruit/fake
+	product = /obj/item/weapon/reagent_containers/food/snacks/grown/gatfruitfake
+	rarity = 5
 
 /obj/item/seeds/coffee_arabica_seed
 	name = "pack of coffee arabica seeds"
