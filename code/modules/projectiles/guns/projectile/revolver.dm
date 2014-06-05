@@ -223,3 +223,7 @@
 					return
 	..()
 
+/obj/item/weapon/gun/projectile/revolver/russian/gatfruit
+	name = "mateba"
+	desc = "When you absolutely, positively need a 10mm hole in the other guy. Uses .357 ammo."	//>10mm hole >.357
+	icon_state = "mateba"
