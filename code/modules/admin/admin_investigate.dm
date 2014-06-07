@@ -25,6 +25,7 @@
 /client/proc/investigate_show( subject in list("hrefs","notes","ntsl","singulo","wires","telesci", "gravity") )
 	set name = "Investigate"
 	set category = "Admin"
+	if(!check_rights(R_ADMIN))	return
 	if(!holder)	return
 	switch(subject)
 		if("singulo", "ntsl", "wires", "telesci", "gravity")			//general one-round-only stuff
