@@ -6,7 +6,7 @@
 	set name = "Memo"
 	set category = "Server"
 	if(!ENABLE_MEMOS)		return
-	if(!check_rights(0))	return
+	if(!check_rights(R_ADMIN))	return
 	switch(task)
 		if("write")		admin_memo_write()
 		if("show")		admin_memo_show()
@@ -14,6 +14,7 @@
 
 //write a message
 /client/proc/admin_memo_write()
+	if(!check_rights(R_ADMIN))	return
 	var/savefile/F = new(MEMOFILE)
 	if(F)
 		var/memo = input(src,"Type your memo\n(Leaving it blank will delete your current memo):","Write Memo",null) as null|message
@@ -31,6 +32,7 @@
 
 //show all memos
 /client/proc/admin_memo_show()
+	if(!check_rights(R_ADMIN))	return
 	if(ENABLE_MEMOS)
 		var/savefile/F = new(MEMOFILE)
 		if(F)
@@ -39,6 +41,7 @@
 
 //delete your own or somebody else's memo
 /client/proc/admin_memo_delete()
+	if(!check_rights(R_ADMIN))	return
 	var/savefile/F = new(MEMOFILE)
 	if(F)
 		var/ckey
