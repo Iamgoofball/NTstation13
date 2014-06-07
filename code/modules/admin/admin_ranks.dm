@@ -33,7 +33,6 @@ var/list/admin_ranks = list()								//list of all admin_rank datums
 		if("rejuv","rejuvinate")		flag = R_REJUVINATE
 		if("varedit")					flag = R_VAREDIT
 		if("everything","host","all")	flag = 65535
-		if("sound","sounds")			flag = R_SOUNDS
 		if("spawn","create")			flag = R_SPAWN
 		if("@","prev")					flag = previous_rights
 		else
