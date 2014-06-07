@@ -55,7 +55,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/secrets,
 	/client/proc/reload_admins,
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
-	/client/proc/cmd_admin_pm_panel		/*admin-pm list*/
+	/client/proc/cmd_admin_pm_panel,		/*admin-pm list*/
 	/client/proc/toggleadminhelpsound	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	)
 var/list/admin_verbs_ban = list(
