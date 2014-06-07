@@ -1,21 +1,6 @@
 //admin verb groups - They can overlap if you so wish. Only one of each verb will exist in the verbs list regardless
 var/list/admin_verbs_default = list(
-	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
-	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
-	/client/proc/hide_verbs,			/*hides all our adminverbs*/
-	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
-	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
-	/client/proc/admin_memo,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
-	/client/proc/deadchat,				/*toggles deadchat on/off*/
-	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
-	/client/proc/toggleprayers,			/*toggles prayers on/off*/
-	/client/proc/toggle_hear_radio,		/*toggles whether we hear the radio*/
-	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
-	/client/proc/secrets,
-	/client/proc/reload_admins,
-	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
-	/client/proc/cmd_admin_pm_panel		/*admin-pm list*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/player_panel,			/*shows an interface for all players, with links to various panels (old style)*/
@@ -57,6 +42,21 @@ var/list/admin_verbs_admin = list(
 	/client/proc/cmd_admin_world_narrate,	/*sends text to all players with no padding*/
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_words			/*displays cult-words*/
+	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
+	/client/proc/hide_verbs,			/*hides all our adminverbs*/
+	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
+	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
+	/client/proc/admin_memo,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
+	/client/proc/deadchat,				/*toggles deadchat on/off*/
+	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
+	/client/proc/toggleprayers,			/*toggles prayers on/off*/
+	/client/proc/toggle_hear_radio,		/*toggles whether we hear the radio*/
+	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
+	/client/proc/secrets,
+	/client/proc/reload_admins,
+	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
+	/client/proc/cmd_admin_pm_panel		/*admin-pm list*/
+	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	)
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
