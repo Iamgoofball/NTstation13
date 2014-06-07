@@ -398,9 +398,6 @@ var/global/floorIsLava = 0
 	if(!check_rights(0))	return
 
 	var/dat = "<B>The first rule of adminbuse is: you don't talk about the adminbuse.</B><HR>"
-	if(!check_rights(R_ADMIN))
-		usr << browse(dat, "window=secrets")
-		return
 	dat +={"
 			<B>General Secrets</B><BR>
 			<BR>
