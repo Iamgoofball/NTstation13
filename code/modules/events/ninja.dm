@@ -1,10 +1,13 @@
 //Note to future generations: I didn't write this god-awful code I just ported it to the event system and tried to make it less moon-speaky.
 //Don't judge me D; ~Carn
 //this is the shittiest most unbalanced antag in the entire codebase and ss13's history and you thought making it into a random event was a good idea? ~Iamgoofball
+
+/*
 /datum/round_event_control/ninja
 	name = "Space Ninja"
 	typepath = /datum/round_event/ninja
-	max_occurrences = 0 // FUCK NINJA
+	max_occurrences = 1
+*/
 
 /datum/round_event/ninja
 	var/success_spawn = 0
