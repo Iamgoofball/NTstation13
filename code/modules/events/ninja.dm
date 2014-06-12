@@ -1,10 +1,10 @@
 //Note to future generations: I didn't write this god-awful code I just ported it to the event system and tried to make it less moon-speaky.
 //Don't judge me D; ~Carn
-
+//this is the shittiest most unbalanced antag in the entire codebase and ss13's history and you thought making it into a random event was a good idea? ~Iamgoofball
 /datum/round_event_control/ninja
 	name = "Space Ninja"
 	typepath = /datum/round_event/ninja
-	max_occurrences = 1
+	max_occurrences = 0 // FUCK NINJA
 
 /datum/round_event/ninja
 	var/success_spawn = 0
@@ -171,7 +171,7 @@
 		Ninja.internals.icon_state = "internal1"
 
 	if(Ninja.mind != Mind)			//something has gone wrong!
-		ERROR("The ninja wasn't assigned the right mind. ;ç;")
+		ERROR("The ninja wasn't assigned the right mind. ;ï¿½;")
 
 	success_spawn = 1
 
@@ -402,7 +402,7 @@ ________________________________________________________________________________
 		U:gloves.item_state = "s-ninjan"
 	else
 		if(U.mind.special_role!="Space Ninja")
-			U << "\red <B>fÄTaL ÈÈRRoR</B>: 382200-*#00CÖDE <B>RED</B>\nUNAU†HORIZED USÈ DETÈC†††eD\nCoMMÈNCING SUB-R0U†IN3 13...\nTÈRMInATING U-U-USÈR..."
+			U << "\red <B>fï¿½TaL ï¿½ï¿½RRoR</B>: 382200-*#00Cï¿½DE <B>RED</B>\nUNAUï¿½HORIZED USï¿½ DETï¿½Cï¿½ï¿½ï¿½eD\nCoMMï¿½NCING SUB-R0Uï¿½IN3 13...\nTï¿½RMInATING U-U-USï¿½R..."
 			U.gib()
 			return 0
 		if(!istype(U:head, /obj/item/clothing/head/helmet/space/space_ninja))
