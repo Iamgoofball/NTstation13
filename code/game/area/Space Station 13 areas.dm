@@ -492,6 +492,16 @@ proc/process_ghost_teleport_locs()
 /area/awaycontent/a30
 	icon_state = "awaycontent30"
 
+/area/oremag/controls
+	name = "Scrap Magnet Controls"
+	icon_state = "ore_mag"
+	requires_power = 0
+
+/area/oremag/scrap
+	name = "Scrap Magnet"
+	icon_state = "ore_mag_attract"
+	requires_power = 0
+
 // CENTCOM
 
 /area/centcom
