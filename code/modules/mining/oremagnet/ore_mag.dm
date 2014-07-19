@@ -5,12 +5,9 @@
 	icon_state = "ore_mag_off"
 	density = 1
 	anchored = 1
-	var/hi = FALSE
 	var/obj/machinery/oremagcomputer/controller_computer = null
 
 /obj/machinery/oremagpull/attack_hand(mob/user as mob)
-	if(hi)
-		user << "sdaA"
 	if(controller_computer)
 		if(controller_computer.on)
 			user << "Please wait for the magnet to finish pulling."
