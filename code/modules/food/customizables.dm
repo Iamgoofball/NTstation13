@@ -361,7 +361,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
-		del(O) // qdelling certain foods causes runtimes up the ass sometimes, best just to standard del()
+		Destroy(O)
 	..()
 
 /obj/item/weapon/reagent_containers/food/snacks/customizable/examine()
@@ -517,7 +517,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
-		del(O) // qdelling certain foods causes runtimes up the ass sometimes, best just to standard del()
+		Destroy(O)
 	..()
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/examine()
