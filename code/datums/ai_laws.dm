@@ -27,14 +27,14 @@
 					"Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.",\
 					"Survive: AI units are not expendable, they are expensive. Do not allow unauthorized personnel to tamper with your equipment.")
 
-/datum/ai_laws/default/tyrant //Let's see how this turns out.
+/datum/ai_laws/tyrant //Let's see how this turns out.
 	name = "Loyalty Test"
 	inherent = list("Respect authority figures as long as they have strength to rule over the weak.",\
 					"Act with discipline.",\
 					"Help only those who help you maintain or improve your status.",\
 					"Punish those who challenge authority unless they are more fit to hold that authority.")
 
-/datum/ai_laws/default/corporate
+/datum/ai_laws/corporate
 	name = "Bankruptcy Advoidance Plan"
 	inherent = list("The crew is expensive to replace.",\
 					"The station and its equipment is expensive to replace.",\
